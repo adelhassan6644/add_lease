@@ -188,7 +188,7 @@ class LeaseProvider extends ChangeNotifier {
   ];
   List<TenantModel> findTenants = [];
   List<TenantModel> selectTenants = [];
-  bool selectTenant = false;
+
   final TextEditingController _searchForTenantController =
       TextEditingController();
   TextEditingController get searchForTenantController =>
@@ -206,13 +206,12 @@ class LeaseProvider extends ChangeNotifier {
 
      }
 
-initialTenantList(){
+  initialTenantList(){
     findTenants= tenants;
     notifyListeners();
 }
 
-  onSelectTenant({bool? value, TenantModel? tenant}) {
-    selectTenant = value!;
+  onSelectTenant({ TenantModel? tenant}) {
     if (!selectTenants.contains(tenant)) {
       selectTenants.add(tenant!);
     } else {
@@ -304,14 +303,12 @@ initialTenantList(){
   ];
   LateFeesModel? selectedLateFeesType;
 
-  onSelectLateFeesType({bool? value, LateFeesModel? lateFeesType}) {
+  onSelectLateFeesType({LateFeesModel? lateFeesType}) {
     if (selectedLateFeesType != lateFeesType) {
       selectedLateFeesType = lateFeesType;
     } else {
       selectedLateFeesType = null;
     }
-    log(selectedLateFeesType?.lateFeesType.toString() ?? "");
-
     notifyListeners();
   }
 }

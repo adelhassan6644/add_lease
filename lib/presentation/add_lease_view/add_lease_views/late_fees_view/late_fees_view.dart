@@ -90,8 +90,7 @@ class _LateFeesViewState extends State<LateFeesView> {
                             title:leaseProvider.lateFeesType[index].lateFeesType??"",
                             subTitle:leaseProvider.lateFeesType[index].lateFeesTypeDescription,
                             value: leaseProvider.selectedLateFeesType == leaseProvider.lateFeesType[index]? true: false,
-                            onChange: (value){leaseProvider.onSelectLateFeesType(lateFeesType: leaseProvider.lateFeesType[index],
-                                value: value);},
+                            onChange: (value){leaseProvider.onSelectLateFeesType(lateFeesType: leaseProvider.lateFeesType[index]);},
                           ),
                         );
                       }

@@ -40,7 +40,7 @@ class _TenantList extends State<TenantList> {
                       child: CustomCheckBoxListTile(
                         title:leaseProvider.findTenants[index].tenantName??"",
                         value: leaseProvider.selectTenants.contains(leaseProvider.findTenants[index]),
-                        onChange: (value){leaseProvider.onSelectTenant(tenant: leaseProvider.findTenants[index],value: value);},
+                        onChange: (value){leaseProvider.onSelectTenant(tenant: leaseProvider.findTenants[index]);},
                       ),
                     );
                   }
