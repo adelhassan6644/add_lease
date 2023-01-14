@@ -1,5 +1,6 @@
 import 'package:add_lease/app/core/utils/dimensions.dart';
 import 'package:add_lease/app/core/utils/images.dart';
+import 'package:add_lease/presentation/add_lease_view/add_lease_screen.dart';
 import 'package:add_lease/presentation/leases_view/units/lease_unit.dart';
 import 'package:add_lease/presentation/provider/my_leases_provider/my_leases_provider.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,12 @@ class _LeasesScreenState extends State<LeasesScreen> {
         title: AppStrings.leasesTitle,
         showLeading: true,
         leadingAction:  InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddLeaseScreen()),
+              );
+            },
             child: SvgPicture.asset(
               Images.arrowRightIcon,
               color: ColorResources.whiteColor,

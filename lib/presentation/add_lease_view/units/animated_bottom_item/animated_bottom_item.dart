@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../app/core/utils/constant.dart';
 import '../../../base/custom_button.dart';
+import '../../../leases_view/leases_screen.dart';
 
 class AnimatedButtonItem extends StatefulWidget {
   final PageController pageController;
@@ -89,27 +90,24 @@ class _AnimatedButtonItemState extends State<AnimatedButtonItem> {
                                   pageController: widget.pageController);
                               return;
                             } else {
-                              leaseProvider.onFailPage;
                               leaseProvider.nextPage(
                                   pageController: widget.pageController);
-                               leaseProvider.onFailPage();
-
+                              leaseProvider.onFailPage();
                             }
                             break;
                           }
                         case 1:
                           {
-                             leaseProvider.depositsFormKey.currentState!.save();
+                            leaseProvider.depositsFormKey.currentState!.save();
                             if (leaseProvider.depositsFormKey.currentState!
                                 .validate()) {
-                              log("validddddddd");
                               leaseProvider.nextPage(
                                   pageController: widget.pageController);
                               return;
                             } else {
-                              log("not validddddddd");
+                              leaseProvider.nextPage(
+                                  pageController: widget.pageController);
                               leaseProvider.onFailPage();
-
                             }
                             break;
                           }
@@ -118,25 +116,28 @@ class _AnimatedButtonItemState extends State<AnimatedButtonItem> {
                             leaseProvider.tenantsFormKey.currentState!.save();
                             if (leaseProvider.tenantsFormKey.currentState!
                                 .validate()) {
-                              // leaseProvider.onPassPage;
                               leaseProvider.nextPage(
                                   pageController: widget.pageController);
                               return;
                             } else {
+                              leaseProvider.nextPage(
+                                  pageController: widget.pageController);
                               leaseProvider.onFailPage();
                             }
                             break;
                           }
                         case 3:
                           {
-                            leaseProvider.extraChangesFormKey.currentState!.save();
+                            leaseProvider.extraChangesFormKey.currentState!
+                                .save();
                             if (leaseProvider.extraChangesFormKey.currentState!
                                 .validate()) {
-                              // leaseProvider.onPassPage;
                               leaseProvider.nextPage(
                                   pageController: widget.pageController);
                               return;
                             } else {
+                              leaseProvider.nextPage(
+                                  pageController: widget.pageController);
                               leaseProvider.onFailPage();
                             }
                             break;
@@ -146,18 +147,25 @@ class _AnimatedButtonItemState extends State<AnimatedButtonItem> {
                             leaseProvider.lateFeesFormKey.currentState!.save();
                             if (leaseProvider.lateFeesFormKey.currentState!
                                 .validate()) {
-                              // leaseProvider.onPassPage;
                               leaseProvider.nextPage(
                                   pageController: widget.pageController);
                               return;
                             } else {
-
+                              leaseProvider.nextPage(
+                                  pageController: widget.pageController);
                               leaseProvider.onFailPage();
                             }
                             break;
                           }
-
-                      }
+                        case 5:
+                          {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LeasesScreen()),
+                          );
+                            }
+                            break;
+                          }
                     },
                     child: AnimatedContainer(
                       alignment: Alignment.center,
